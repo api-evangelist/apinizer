@@ -1,0 +1,49 @@
+aid: apinizer
+name: Apinizer
+description: >-
+  Apinizer is an API management platform that provides API gateway, API portal,
+  API testing, monitoring, and security capabilities. It enables organizations to
+  manage, secure, and monitor their APIs through a comprehensive API lifecycle
+  management solution.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - API Management
+  - API Gateway
+  - API Security
+  - API Monitoring
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/apinizer/refs/heads/main/apis.yml
+created: '2026-03-16'
+modified: '2026-03-16'
+specificationVersion: '0.19'
+apis:
+  - aid: apinizer:apinizer-api
+    name: Apinizer API
+    description: >-
+      The Apinizer API provides programmatic access to manage API gateways,
+      policies, endpoints, and monitoring configurations within the Apinizer
+      platform.
+    humanURL: https://apinizer.com/
+    baseURL: https://api.apinizer.com
+    tags:
+      - API Management
+      - API Gateway
+      - API Security
+    properties:
+      - type: Documentation
+        url: https://apinizer.com/documentation/
+      - type: Getting Started
+        url: https://apinizer.com/getting-started/
+common:
+  - type: Website
+    url: https://apinizer.com/
+  - type: Documentation
+    url: https://apinizer.com/documentation/
+  - type: Blog
+    url: https://apinizer.com/blog/
+  - type: GitHub Organization
+    url: https://github.com/apinizer
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
