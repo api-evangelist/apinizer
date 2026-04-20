@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apinizer/main/json-structure/apinizer-policy-structure.json",
+  "title": "Apinizer Policy",
+  "description": "Structure representing a policy in the Apinizer platform",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "type": { "type": "string" },
+    "configuration": { "type": "object" }
+  }
+}

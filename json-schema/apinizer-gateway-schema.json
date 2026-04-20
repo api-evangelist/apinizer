@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apinizer/main/json-schema/apinizer-gateway-schema.json",
+  "title": "Apinizer Gateway",
+  "description": "Schema representing an API gateway managed by the Apinizer platform",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "description": "Unique identifier of the gateway" },
+    "name": { "type": "string", "description": "Name of the gateway" },
+    "description": { "type": "string", "description": "Description of the gateway" },
+    "baseUrl": { "type": "string", "format": "uri", "description": "Base URL of the backend service" },
+    "status": { "type": "string", "enum": ["active", "inactive", "maintenance"], "description": "Gateway status" },
+    "createdAt": { "type": "string", "format": "date-time", "description": "Creation timestamp" }
+  },
+  "required": ["id", "name", "baseUrl"]
+}

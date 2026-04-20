@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apinizer/main/json-structure/apinizer-gateway-structure.json",
+  "title": "Apinizer Gateway",
+  "description": "Structure representing an API gateway in the Apinizer platform",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "description": { "type": "string" },
+    "baseUrl": { "type": "string" },
+    "status": { "type": "string" },
+    "createdAt": { "type": "datetime" }
+  }
+}

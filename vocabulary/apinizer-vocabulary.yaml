@@ -1,0 +1,67 @@
+vocabulary:
+  name: Apinizer Vocabulary
+  description: Unified taxonomy mapping API gateway resources, policies, monitoring, and personas for the Apinizer API management platform
+  version: 1.0.0
+  updated: '2026-04-19'
+
+resources:
+  - name: Gateway
+    description: An API gateway instance managing one or more backend services
+    properties:
+      - id
+      - name
+      - description
+      - baseUrl
+      - status
+      - createdAt
+
+  - name: Endpoint
+    description: An API endpoint registered on a gateway with routing configuration
+    properties:
+      - id
+      - path
+      - method
+      - backendPath
+      - policies
+
+  - name: Policy
+    description: A security or governance rule applied to gateway traffic
+    properties:
+      - id
+      - name
+      - type
+      - configuration
+    values:
+      - rate-limit
+      - authentication
+      - cors
+      - ip-filter
+      - caching
+      - transformation
+
+  - name: Metrics
+    description: API usage and performance metrics collected by the platform
+    properties:
+      - totalRequests
+      - successfulRequests
+      - errorRequests
+      - averageLatency
+      - requestsPerSecond
+
+actions:
+  - name: Create
+    description: Create a new gateway or endpoint in the Apinizer platform
+  - name: Configure
+    description: Configure policies and routing rules on gateways and endpoints
+  - name: Monitor
+    description: Collect and view API usage metrics and health data
+  - name: Secure
+    description: Apply authentication, rate limiting, and IP filtering policies to APIs
+
+personas:
+  - name: API Gateway Administrator
+    description: An administrator managing gateways, endpoints, and policies in Apinizer
+  - name: API Developer
+    description: A developer registering APIs and configuring gateway routing
+  - name: Security Engineer
+    description: A security engineer applying and managing API security policies

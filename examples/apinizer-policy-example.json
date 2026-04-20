@@ -1,0 +1,10 @@
+{
+  "id": "rate-limit-100rpm",
+  "name": "Rate Limit 100 RPM",
+  "type": "rate-limit",
+  "configuration": {
+    "limit": 100,
+    "window": "minute",
+    "perConsumer": true
+  }
+}

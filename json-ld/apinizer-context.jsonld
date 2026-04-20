@@ -1,0 +1,21 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "apinizer": "https://apinizer.com/vocab/",
+    "id": "@id",
+    "type": "@type",
+    "name": "schema:name",
+    "description": "schema:description",
+    "baseUrl": { "@id": "schema:url", "@type": "@id" },
+    "status": "apinizer:status",
+    "createdAt": { "@id": "dcterms:created", "@type": "xsd:dateTime" },
+    "configuration": "apinizer:configuration",
+    "policies": "apinizer:policies",
+    "endpoints": "apinizer:endpoints",
+    "totalRequests": "apinizer:totalRequests",
+    "averageLatency": "apinizer:averageLatency"
+  }
+}

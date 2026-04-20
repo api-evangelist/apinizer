@@ -1,0 +1,314 @@
+openapi: 3.0.3
+info:
+  title: Apinizer API
+  description: >-
+    The Apinizer API provides programmatic access to manage API gateways,
+    policies, endpoints, and monitoring configurations within the Apinizer
+    API management platform.
+  version: 1.0.0
+  contact:
+    url: https://apinizer.com/contact/
+servers:
+  - url: https://api.apinizer.com/v1
+    description: Apinizer API
+security:
+  - apiKey: []
+paths:
+  /gateways:
+    get:
+      operationId: listGateways
+      summary: List Gateways
+      description: List all API gateways managed in the Apinizer platform.
+      tags:
+        - Gateways
+      responses:
+        '200':
+          description: List of API gateways
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Gateway'
+              examples:
+                default:
+                  $ref: '#/components/examples/GatewayListExample'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createGateway
+      summary: Create Gateway
+      description: Create a new API gateway in the Apinizer platform.
+      tags:
+        - Gateways
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GatewayRequest'
+            examples:
+              default:
+                $ref: '#/components/examples/GatewayRequestExample'
+      responses:
+        '201':
+          description: Gateway created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gateway'
+              examples:
+                default:
+                  $ref: '#/components/examples/GatewayExample'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /gateways/{gatewayId}/endpoints:
+    get:
+      operationId: listEndpoints
+      summary: List Endpoints
+      description: List all API endpoints registered on a gateway.
+      tags:
+        - Endpoints
+      parameters:
+        - name: gatewayId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the gateway
+      responses:
+        '200':
+          description: List of endpoints
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Endpoint'
+              examples:
+                default:
+                  $ref: '#/components/examples/EndpointListExample'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /gateways/{gatewayId}/policies:
+    get:
+      operationId: listPolicies
+      summary: List Policies
+      description: List all security and governance policies applied to a gateway.
+      tags:
+        - Policies
+      parameters:
+        - name: gatewayId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the gateway
+      responses:
+        '200':
+          description: List of policies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Policy'
+              examples:
+                default:
+                  $ref: '#/components/examples/PolicyListExample'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /monitoring/metrics:
+    get:
+      operationId: getMetrics
+      summary: Get Metrics
+      description: Retrieve API usage metrics and monitoring data from the platform.
+      tags:
+        - Monitoring
+      parameters:
+        - name: from
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: Start of the metrics time range
+        - name: to
+          in: query
+          schema:
+            type: string
+            format: date-time
+          description: End of the metrics time range
+      responses:
+        '200':
+          description: API usage metrics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Metrics'
+              examples:
+                default:
+                  $ref: '#/components/examples/MetricsExample'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
+  schemas:
+    Gateway:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the gateway
+        name:
+          type: string
+          description: Name of the gateway
+        description:
+          type: string
+          description: Description of the gateway
+        baseUrl:
+          type: string
+          format: uri
+          description: Base URL of the backend service
+        status:
+          type: string
+          enum: [active, inactive, maintenance]
+          description: Current status of the gateway
+        createdAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - baseUrl
+    GatewayRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the gateway
+        description:
+          type: string
+          description: Description of the gateway
+        baseUrl:
+          type: string
+          format: uri
+          description: Base URL of the backend service
+      required:
+        - name
+        - baseUrl
+    Endpoint:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the endpoint
+        path:
+          type: string
+          description: API path pattern for the endpoint
+        method:
+          type: string
+          enum: [GET, POST, PUT, PATCH, DELETE]
+          description: HTTP method
+        backendPath:
+          type: string
+          description: Backend service path to proxy requests to
+        policies:
+          type: array
+          items:
+            type: string
+          description: Policy IDs applied to this endpoint
+      required:
+        - id
+        - path
+        - method
+    Policy:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the policy
+        name:
+          type: string
+          description: Name of the policy
+        type:
+          type: string
+          enum: [rate-limit, authentication, cors, ip-filter, caching, transformation]
+          description: Type of policy
+        configuration:
+          type: object
+          description: Policy-specific configuration
+      required:
+        - id
+        - name
+        - type
+    Metrics:
+      type: object
+      properties:
+        totalRequests:
+          type: integer
+          description: Total number of API requests in the time range
+        successfulRequests:
+          type: integer
+          description: Number of successful requests (2xx responses)
+        errorRequests:
+          type: integer
+          description: Number of error requests (4xx/5xx responses)
+        averageLatency:
+          type: number
+          description: Average request latency in milliseconds
+        requestsPerSecond:
+          type: number
+          description: Average requests per second
+  examples:
+    GatewayListExample:
+      value:
+        - id: "gw_abc123"
+          name: "Payment API Gateway"
+          description: "Gateway for payment processing microservices"
+          baseUrl: "https://payments.internal.example.com"
+          status: "active"
+          createdAt: "2026-01-10T09:00:00Z"
+    GatewayExample:
+      value:
+        id: "gw_abc123"
+        name: "Payment API Gateway"
+        description: "Gateway for payment processing microservices"
+        baseUrl: "https://payments.internal.example.com"
+        status: "active"
+        createdAt: "2026-01-10T09:00:00Z"
+    GatewayRequestExample:
+      value:
+        name: "Payment API Gateway"
+        description: "Gateway for payment processing microservices"
+        baseUrl: "https://payments.internal.example.com"
+    EndpointListExample:
+      value:
+        - id: "ep_xyz789"
+          path: "/payments/{id}"
+          method: "GET"
+          backendPath: "/v1/payments/{id}"
+          policies: ["rate-limit-100rpm", "jwt-auth"]
+    PolicyListExample:
+      value:
+        - id: "rate-limit-100rpm"
+          name: "Rate Limit 100 RPM"
+          type: "rate-limit"
+          configuration:
+            limit: 100
+            window: "minute"
+    MetricsExample:
+      value:
+        totalRequests: 150000
+        successfulRequests: 148500
+        errorRequests: 1500
+        averageLatency: 45.2
+        requestsPerSecond: 1.74

@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apinizer/main/json-schema/apinizer-policy-schema.json",
+  "title": "Apinizer Policy",
+  "description": "Schema representing a security or governance policy in the Apinizer platform",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string", "description": "Unique identifier of the policy" },
+    "name": { "type": "string", "description": "Name of the policy" },
+    "type": {
+      "type": "string",
+      "enum": ["rate-limit", "authentication", "cors", "ip-filter", "caching", "transformation"],
+      "description": "Type of policy"
+    },
+    "configuration": { "type": "object", "description": "Policy-specific configuration parameters" }
+  },
+  "required": ["id", "name", "type"]
+}
