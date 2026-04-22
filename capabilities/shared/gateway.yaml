@@ -1,0 +1,187 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  name: Apinizer Gateway Management
+  description: Gateway, endpoint, policy, and metrics management via the Apinizer API
+  version: 1.0.0
+
+binds:
+  - name: APINIZER_API_KEY
+    env: APINIZER_API_KEY
+
+capability:
+  consumes:
+    - namespace: apinizer
+      type: http
+      baseUri: "https://api.apinizer.com/v1"
+      authentication:
+        type: apikey
+        header: X-API-Key
+        value: "{{APINIZER_API_KEY}}"
+      resources:
+        - name: gateways
+          path: "/gateways"
+          operations:
+            - name: listGateways
+              method: GET
+            - name: createGateway
+              method: POST
+
+        - name: endpoints
+          path: "/gateways/{gatewayId}/endpoints"
+          operations:
+            - name: listEndpoints
+              method: GET
+
+        - name: policies
+          path: "/gateways/{gatewayId}/policies"
+          operations:
+            - name: listPolicies
+              method: GET
+
+        - name: metrics
+          path: "/monitoring/metrics"
+          operations:
+            - name: getMetrics
+              method: GET
+
+  exposes:
+    - type: rest
+      port: 8120
+      namespace: apinizer-rest
+      resources:
+        - path: "/gateways"
+          name: gateways
+          label: "List Gateways"
+          description: "List all configured Apinizer gateways"
+          operations:
+            - method: GET
+              call: apinizer.listGateways
+              outputParameters:
+                - type: array
+                  mapping: "$."
+                  items:
+                    type: object
+
+        - path: "/gateways/{gatewayId}/endpoints"
+          name: endpoints
+          label: "List Endpoints"
+          description: "List all endpoints registered on a gateway"
+          operations:
+            - method: GET
+              call: apinizer.listEndpoints
+              inputParameters:
+                - name: gatewayId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Gateway ID"
+              outputParameters:
+                - type: array
+                  mapping: "$."
+                  items:
+                    type: object
+
+        - path: "/gateways/{gatewayId}/policies"
+          name: policies
+          label: "List Policies"
+          description: "List all policies applied to a gateway"
+          operations:
+            - method: GET
+              call: apinizer.listPolicies
+              inputParameters:
+                - name: gatewayId
+                  in: path
+                  type: string
+                  required: true
+                  description: "Gateway ID"
+              outputParameters:
+                - type: array
+                  mapping: "$."
+                  items:
+                    type: object
+
+        - path: "/monitoring/metrics"
+          name: metrics
+          label: "Get Metrics"
+          description: "Retrieve monitoring metrics for the Apinizer platform"
+          operations:
+            - method: GET
+              call: apinizer.getMetrics
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      address: "0.0.0.0"
+      port: 9120
+      namespace: apinizer
+      description: "Apinizer gateway management, policy inspection, and metrics tools"
+      tools:
+        - name: list-gateways
+          description: "List all configured Apinizer API gateways"
+          hints:
+            readOnly: true
+          call: apinizer.listGateways
+          outputParameters:
+            - type: array
+              mapping: "$."
+              items:
+                type: object
+
+        - name: create-gateway
+          description: "Create a new Apinizer API gateway"
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: apinizer.createGateway
+          inputParameters:
+            - name: body
+              type: object
+              required: true
+              description: "Gateway configuration"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-endpoints
+          description: "List all API endpoints registered on a specific gateway"
+          hints:
+            readOnly: true
+          call: apinizer.listEndpoints
+          inputParameters:
+            - name: gatewayId
+              type: string
+              required: true
+              description: "Gateway ID"
+          outputParameters:
+            - type: array
+              mapping: "$."
+              items:
+                type: object
+
+        - name: list-policies
+          description: "List all policies applied to a specific gateway"
+          hints:
+            readOnly: true
+          call: apinizer.listPolicies
+          inputParameters:
+            - name: gatewayId
+              type: string
+              required: true
+              description: "Gateway ID"
+          outputParameters:
+            - type: array
+              mapping: "$."
+              items:
+                type: object
+
+        - name: get-metrics
+          description: "Retrieve monitoring metrics and usage statistics from Apinizer"
+          hints:
+            readOnly: true
+          call: apinizer.getMetrics
+          outputParameters:
+            - type: object
+              mapping: "$."
