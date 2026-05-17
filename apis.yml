@@ -44,7 +44,7 @@ apis:
         url: json-schema/apinizer-gateway-schema.json
       - type: JSONSchema
         url: json-schema/apinizer-policy-schema.json
-      - type: JSON-LD
+      - type: JSONLD
         url: json-ld/apinizer-context.jsonld
 common:
   - type: Website
