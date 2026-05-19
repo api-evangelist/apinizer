@@ -1,0 +1,82 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apinizer API — Policies
+  description: 'Apinizer API — Policies. 1 operations. Lead operation: List Policies. Self-contained Naftiko capability covering
+    one Apinizer business surface.'
+  tags:
+  - Apinizer
+  - Policies
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APINIZER_API_KEY: APINIZER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apinizer-policies
+    baseUri: https://api.apinizer.com/v1
+    description: Apinizer API — Policies business capability. Self-contained, no shared references.
+    resources:
+    - name: gateways-gatewayId-policies
+      path: /gateways/{gatewayId}/policies
+      operations:
+      - name: listpolicies
+        method: GET
+        description: List Policies
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: gatewayId
+          in: path
+          type: string
+          description: Unique identifier of the gateway
+          required: true
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.APINIZER_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: apinizer-policies-rest
+    port: 8080
+    description: REST adapter for Apinizer API — Policies. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/gateways/{gatewayid}/policies
+      name: gateways-gatewayid-policies
+      description: REST surface for gateways-gatewayId-policies.
+      operations:
+      - method: GET
+        name: listpolicies
+        description: List Policies
+        call: apinizer-policies.listpolicies
+        with:
+          gatewayId: rest.gatewayId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apinizer-policies-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apinizer API — Policies. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: list-policies
+      description: List Policies
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apinizer-policies.listpolicies
+      with:
+        gatewayId: tools.gatewayId
+      outputParameters:
+      - type: object
+        mapping: $.

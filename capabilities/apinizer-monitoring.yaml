@@ -1,0 +1,87 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apinizer API — Monitoring
+  description: 'Apinizer API — Monitoring. 1 operations. Lead operation: Get Metrics. Self-contained Naftiko capability covering
+    one Apinizer business surface.'
+  tags:
+  - Apinizer
+  - Monitoring
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APINIZER_API_KEY: APINIZER_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: apinizer-monitoring
+    baseUri: https://api.apinizer.com/v1
+    description: Apinizer API — Monitoring business capability. Self-contained, no shared references.
+    resources:
+    - name: monitoring-metrics
+      path: /monitoring/metrics
+      operations:
+      - name: getmetrics
+        method: GET
+        description: Get Metrics
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: from
+          in: query
+          type: string
+          description: Start of the metrics time range
+        - name: to
+          in: query
+          type: string
+          description: End of the metrics time range
+    authentication:
+      type: apikey
+      key: X-API-Key
+      value: '{{env.APINIZER_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: apinizer-monitoring-rest
+    port: 8080
+    description: REST adapter for Apinizer API — Monitoring. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/monitoring/metrics
+      name: monitoring-metrics
+      description: REST surface for monitoring-metrics.
+      operations:
+      - method: GET
+        name: getmetrics
+        description: Get Metrics
+        call: apinizer-monitoring.getmetrics
+        with:
+          from: rest.from
+          to: rest.to
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: apinizer-monitoring-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apinizer API — Monitoring. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: get-metrics
+      description: Get Metrics
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: apinizer-monitoring.getmetrics
+      with:
+        from: tools.from
+        to: tools.to
+      outputParameters:
+      - type: object
+        mapping: $.
