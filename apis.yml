@@ -4,7 +4,7 @@ description: Apinizer is an API management platform that provides API gateway, A
   capabilities. It enables organizations to manage, secure, and monitor their APIs through a comprehensive API lifecycle management
   solution with policy enforcement, endpoint routing, and real-time metrics collection.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - API Gateway
 - API Management
