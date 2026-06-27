@@ -40,13 +40,13 @@ apis:
     url: json-schema/apinizer-policy-schema.json
   - type: JSONLD
     url: json-ld/apinizer-context.jsonld
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apinizer-endpoints.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apinizer-gateways.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apinizer-monitoring.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/apinizer-policies.yaml
 common:
 - type: LinkedIn
