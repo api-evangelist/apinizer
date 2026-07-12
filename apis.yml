@@ -49,6 +49,10 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/apinizer-policies.yaml
 common:
+- type: DomainSecurity
+  url: security/apinizer-domain-security.yml
+- type: Authentication
+  url: authentication/apinizer-authentication.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/apinizerteam
 - type: Website
