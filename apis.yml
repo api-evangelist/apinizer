@@ -49,6 +49,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/apinizer-policies.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/apinizer-agentic-access.yml
 - type: DomainSecurity
   url: security/apinizer-domain-security.yml
 - type: Authentication
