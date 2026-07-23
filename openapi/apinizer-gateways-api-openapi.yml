@@ -1,0 +1,140 @@
+openapi: 3.0.3
+info:
+  title: Apinizer Endpoints Gateways API
+  description: The Apinizer API provides programmatic access to manage API gateways, policies, endpoints, and monitoring configurations within the Apinizer API management platform.
+  version: 1.0.0
+  contact:
+    url: https://apinizer.com/contact/
+servers:
+- url: https://api.apinizer.com/v1
+  description: Apinizer API
+security:
+- apiKey: []
+tags:
+- name: Gateways
+paths:
+  /gateways:
+    get:
+      operationId: listGateways
+      summary: List Gateways
+      description: List all API gateways managed in the Apinizer platform.
+      tags:
+      - Gateways
+      responses:
+        '200':
+          description: List of API gateways
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Gateway'
+              examples:
+                default:
+                  $ref: '#/components/examples/GatewayListExample'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      operationId: createGateway
+      summary: Create Gateway
+      description: Create a new API gateway in the Apinizer platform.
+      tags:
+      - Gateways
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GatewayRequest'
+            examples:
+              default:
+                $ref: '#/components/examples/GatewayRequestExample'
+      responses:
+        '201':
+          description: Gateway created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Gateway'
+              examples:
+                default:
+                  $ref: '#/components/examples/GatewayExample'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  examples:
+    GatewayListExample:
+      value:
+      - id: gw_abc123
+        name: Payment API Gateway
+        description: Gateway for payment processing microservices
+        baseUrl: https://payments.internal.example.com
+        status: active
+        createdAt: '2026-01-10T09:00:00Z'
+    GatewayRequestExample:
+      value:
+        name: Payment API Gateway
+        description: Gateway for payment processing microservices
+        baseUrl: https://payments.internal.example.com
+    GatewayExample:
+      value:
+        id: gw_abc123
+        name: Payment API Gateway
+        description: Gateway for payment processing microservices
+        baseUrl: https://payments.internal.example.com
+        status: active
+        createdAt: '2026-01-10T09:00:00Z'
+  schemas:
+    Gateway:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the gateway
+        name:
+          type: string
+          description: Name of the gateway
+        description:
+          type: string
+          description: Description of the gateway
+        baseUrl:
+          type: string
+          format: uri
+          description: Base URL of the backend service
+        status:
+          type: string
+          enum:
+          - active
+          - inactive
+          - maintenance
+          description: Current status of the gateway
+        createdAt:
+          type: string
+          format: date-time
+      required:
+      - id
+      - name
+      - baseUrl
+    GatewayRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the gateway
+        description:
+          type: string
+          description: Description of the gateway
+        baseUrl:
+          type: string
+          format: uri
+          description: Base URL of the backend service
+      required:
+      - name
+      - baseUrl
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key

@@ -1,0 +1,91 @@
+openapi: 3.0.3
+info:
+  title: Apinizer Endpoints API
+  description: The Apinizer API provides programmatic access to manage API gateways, policies, endpoints, and monitoring configurations within the Apinizer API management platform.
+  version: 1.0.0
+  contact:
+    url: https://apinizer.com/contact/
+servers:
+- url: https://api.apinizer.com/v1
+  description: Apinizer API
+security:
+- apiKey: []
+tags:
+- name: Endpoints
+paths:
+  /gateways/{gatewayId}/endpoints:
+    get:
+      operationId: listEndpoints
+      summary: List Endpoints
+      description: List all API endpoints registered on a gateway.
+      tags:
+      - Endpoints
+      parameters:
+      - name: gatewayId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Unique identifier of the gateway
+      responses:
+        '200':
+          description: List of endpoints
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Endpoint'
+              examples:
+                default:
+                  $ref: '#/components/examples/EndpointListExample'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  examples:
+    EndpointListExample:
+      value:
+      - id: ep_xyz789
+        path: /payments/{id}
+        method: GET
+        backendPath: /v1/payments/{id}
+        policies:
+        - rate-limit-100rpm
+        - jwt-auth
+  schemas:
+    Endpoint:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the endpoint
+        path:
+          type: string
+          description: API path pattern for the endpoint
+        method:
+          type: string
+          enum:
+          - GET
+          - POST
+          - PUT
+          - PATCH
+          - DELETE
+          description: HTTP method
+        backendPath:
+          type: string
+          description: Backend service path to proxy requests to
+        policies:
+          type: array
+          items:
+            type: string
+          description: Policy IDs applied to this endpoint
+      required:
+      - id
+      - path
+      - method
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key

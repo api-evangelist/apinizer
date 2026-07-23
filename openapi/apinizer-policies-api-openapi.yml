@@ -1,0 +1,86 @@
+openapi: 3.0.3
+info:
+  title: Apinizer Endpoints Policies API
+  description: The Apinizer API provides programmatic access to manage API gateways, policies, endpoints, and monitoring configurations within the Apinizer API management platform.
+  version: 1.0.0
+  contact:
+    url: https://apinizer.com/contact/
+servers:
+- url: https://api.apinizer.com/v1
+  description: Apinizer API
+security:
+- apiKey: []
+tags:
+- name: Policies
+paths:
+  /gateways/{gatewayId}/policies:
+    get:
+      operationId: listPolicies
+      summary: List Policies
+      description: List all security and governance policies applied to a gateway.
+      tags:
+      - Policies
+      parameters:
+      - name: gatewayId
+        in: path
+        required: true
+        schema:
+          type: string
+        description: Unique identifier of the gateway
+      responses:
+        '200':
+          description: List of policies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Policy'
+              examples:
+                default:
+                  $ref: '#/components/examples/PolicyListExample'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  examples:
+    PolicyListExample:
+      value:
+      - id: rate-limit-100rpm
+        name: Rate Limit 100 RPM
+        type: rate-limit
+        configuration:
+          limit: 100
+          window: minute
+  schemas:
+    Policy:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier of the policy
+        name:
+          type: string
+          description: Name of the policy
+        type:
+          type: string
+          enum:
+          - rate-limit
+          - authentication
+          - cors
+          - ip-filter
+          - caching
+          - transformation
+          description: Type of policy
+        configuration:
+          type: object
+          description: Policy-specific configuration
+      required:
+      - id
+      - name
+      - type
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key

@@ -1,0 +1,81 @@
+openapi: 3.0.3
+info:
+  title: Apinizer Endpoints Monitoring API
+  description: The Apinizer API provides programmatic access to manage API gateways, policies, endpoints, and monitoring configurations within the Apinizer API management platform.
+  version: 1.0.0
+  contact:
+    url: https://apinizer.com/contact/
+servers:
+- url: https://api.apinizer.com/v1
+  description: Apinizer API
+security:
+- apiKey: []
+tags:
+- name: Monitoring
+paths:
+  /monitoring/metrics:
+    get:
+      operationId: getMetrics
+      summary: Get Metrics
+      description: Retrieve API usage metrics and monitoring data from the platform.
+      tags:
+      - Monitoring
+      parameters:
+      - name: from
+        in: query
+        schema:
+          type: string
+          format: date-time
+        description: Start of the metrics time range
+      - name: to
+        in: query
+        schema:
+          type: string
+          format: date-time
+        description: End of the metrics time range
+      responses:
+        '200':
+          description: API usage metrics
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Metrics'
+              examples:
+                default:
+                  $ref: '#/components/examples/MetricsExample'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    Metrics:
+      type: object
+      properties:
+        totalRequests:
+          type: integer
+          description: Total number of API requests in the time range
+        successfulRequests:
+          type: integer
+          description: Number of successful requests (2xx responses)
+        errorRequests:
+          type: integer
+          description: Number of error requests (4xx/5xx responses)
+        averageLatency:
+          type: number
+          description: Average request latency in milliseconds
+        requestsPerSecond:
+          type: number
+          description: Average requests per second
+  examples:
+    MetricsExample:
+      value:
+        totalRequests: 150000
+        successfulRequests: 148500
+        errorRequests: 1500
+        averageLatency: 45.2
+        requestsPerSecond: 1.74
+  securitySchemes:
+    apiKey:
+      type: apiKey
+      in: header
+      name: X-API-Key
