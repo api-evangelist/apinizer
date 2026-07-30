@@ -4,7 +4,20 @@ description: Apinizer is an API management platform that provides API gateway, A
   capabilities. It enables organizations to manage, secure, and monitor their APIs through a comprehensive API lifecycle management
   solution with policy enforcement, endpoint routing, and real-time metrics collection.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/apinizer.png
 tags:
 - API Gateway
 - API Management
@@ -16,24 +29,104 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-- aid: apinizer:apinizer-api
-  name: Apinizer API
-  description: The Apinizer API provides programmatic access to manage API gateways, policies, endpoints, and monitoring configurations
-    within the Apinizer platform.
+- aid: apinizer:apinizer-endpoints-api
+  name: Apinizer Endpoints API
+  description: The Endpoints API from Apinizer — 1 operation(s) for endpoints.
   humanURL: https://apinizer.com/
   baseURL: https://api.apinizer.com/v1
   tags:
-  - API Gateway
-  - API Management
-  - API Security
-  - Monitoring
+  - Endpoints
   properties:
+  - type: OpenAPI
+    url: openapi/apinizer-endpoints-api-openapi.yml
   - type: Documentation
     url: https://apinizer.com/documentation/
   - type: GettingStarted
     url: https://apinizer.com/getting-started/
+  - type: JSONSchema
+    url: json-schema/apinizer-gateway-schema.json
+  - type: JSONSchema
+    url: json-schema/apinizer-policy-schema.json
+  - type: JSONLD
+    url: json-ld/apinizer-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-endpoints.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-gateways.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-monitoring.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-policies.yaml
+- aid: apinizer:apinizer-gateways-api
+  name: Apinizer Gateways API
+  description: The Gateways API from Apinizer — 1 operation(s) for gateways.
+  humanURL: https://apinizer.com/
+  baseURL: https://api.apinizer.com/v1
+  tags:
+  - Gateways
+  properties:
   - type: OpenAPI
-    url: openapi/apinizer-api.yaml
+    url: openapi/apinizer-gateways-api-openapi.yml
+  - type: Documentation
+    url: https://apinizer.com/documentation/
+  - type: GettingStarted
+    url: https://apinizer.com/getting-started/
+  - type: JSONSchema
+    url: json-schema/apinizer-gateway-schema.json
+  - type: JSONSchema
+    url: json-schema/apinizer-policy-schema.json
+  - type: JSONLD
+    url: json-ld/apinizer-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-endpoints.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-gateways.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-monitoring.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-policies.yaml
+- aid: apinizer:apinizer-monitoring-api
+  name: Apinizer Monitoring API
+  description: The Monitoring API from Apinizer — 1 operation(s) for monitoring.
+  humanURL: https://apinizer.com/
+  baseURL: https://api.apinizer.com/v1
+  tags:
+  - Monitoring
+  properties:
+  - type: OpenAPI
+    url: openapi/apinizer-monitoring-api-openapi.yml
+  - type: Documentation
+    url: https://apinizer.com/documentation/
+  - type: GettingStarted
+    url: https://apinizer.com/getting-started/
+  - type: JSONSchema
+    url: json-schema/apinizer-gateway-schema.json
+  - type: JSONSchema
+    url: json-schema/apinizer-policy-schema.json
+  - type: JSONLD
+    url: json-ld/apinizer-context.jsonld
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-endpoints.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-gateways.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-monitoring.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/apinizer-policies.yaml
+- aid: apinizer:apinizer-policies-api
+  name: Apinizer Policies API
+  description: The Policies API from Apinizer — 1 operation(s) for policies.
+  humanURL: https://apinizer.com/
+  baseURL: https://api.apinizer.com/v1
+  tags:
+  - Policies
+  properties:
+  - type: OpenAPI
+    url: openapi/apinizer-policies-api-openapi.yml
+  - type: Documentation
+    url: https://apinizer.com/documentation/
+  - type: GettingStarted
+    url: https://apinizer.com/getting-started/
   - type: JSONSchema
     url: json-schema/apinizer-gateway-schema.json
   - type: JSONSchema
