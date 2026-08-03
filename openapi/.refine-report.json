@@ -1,0 +1,20 @@
+{
+  "provider": "apinizer",
+  "sources": [
+    "apinizer-endpoints-api-openapi.yml",
+    "apinizer-gateways-api-openapi.yml",
+    "apinizer-monitoring-api-openapi.yml",
+    "apinizer-policies-api-openapi.yml"
+  ],
+  "outputs": [
+    "apinizer-endpoints-api-openapi.yml",
+    "apinizer-gateways-api-openapi.yml",
+    "apinizer-monitoring-api-openapi.yml",
+    "apinizer-policies-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
