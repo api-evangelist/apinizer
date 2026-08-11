@@ -49,14 +49,6 @@ apis:
     url: json-schema/apinizer-policy-schema.json
   - type: JSONLD
     url: json-ld/apinizer-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-endpoints.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-gateways.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-monitoring.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-policies.yaml
 - aid: apinizer:apinizer-gateways-api
   name: Apinizer Gateways API
   description: The Gateways API from Apinizer — 1 operation(s) for gateways.
@@ -77,14 +69,6 @@ apis:
     url: json-schema/apinizer-policy-schema.json
   - type: JSONLD
     url: json-ld/apinizer-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-endpoints.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-gateways.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-monitoring.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-policies.yaml
 - aid: apinizer:apinizer-monitoring-api
   name: Apinizer Monitoring API
   description: The Monitoring API from Apinizer — 1 operation(s) for monitoring.
@@ -105,14 +89,6 @@ apis:
     url: json-schema/apinizer-policy-schema.json
   - type: JSONLD
     url: json-ld/apinizer-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-endpoints.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-gateways.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-monitoring.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-policies.yaml
 - aid: apinizer:apinizer-policies-api
   name: Apinizer Policies API
   description: The Policies API from Apinizer — 1 operation(s) for policies.
@@ -133,15 +109,23 @@ apis:
     url: json-schema/apinizer-policy-schema.json
   - type: JSONLD
     url: json-ld/apinizer-context.jsonld
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-endpoints.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-gateways.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-monitoring.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/apinizer-policies.yaml
 common:
+- type: APIReference
+  url: https://apinizer.com/developers/api-reference
+- type: Security
+  url: https://apinizer.com/legal/security
+- type: DeveloperPortal
+  url: https://apinizer.com/developers/docs
+- type: ChangeLog
+  url: https://docs.apinizer.com/en/release-notes/change-log
+- type: PrivacyPolicy
+  url: https://apinizer.com/legal/privacy
+- type: TermsOfService
+  url: https://apinizer.com/legal/terms
+- type: Pricing
+  url: https://apinizer.com/pricing
+- type: GettingStarted
+  url: https://apinizer.com/developers/quickstart
 - type: AgenticAccess
   url: agentic-access/apinizer-agentic-access.yml
 - type: DomainSecurity
