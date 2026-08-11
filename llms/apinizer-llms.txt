@@ -1,0 +1,100 @@
+# Apinizer
+
+> Kubernetes-native API & AI Gateway platform for regulated enterprises — banks, government, defense, telecom, insurance, healthcare.
+
+Apinizer governs every API and AI request through one runtime with one audit trail and one permission model. The platform spans an API Gateway, an AI Gateway with multi-LLM routing, an Identity Manager, an API Portal, Analytics Engine, API Designer, no-code Creator tools (DB-to-API, Mock API, Script-to-API), an Integrator, distributed Cache, and Monitoring — all deployed on the customer's own Kubernetes.
+
+Every page on apinizer.com also returns a clean Markdown representation when fetched with `?mode=agent` (or with `Accept: text/markdown`). Crawlers and LLM agents are welcome to use that variant.
+
+## Platform
+
+- [API Gateway](https://apinizer.com/products/api-gateway): Multi-protocol gateway — HTTP, SOAP, gRPC, WebSocket, GraphQL — with policy, identity, and audit.
+- [AI Gateway](https://apinizer.com/products/ai-gateway): One OpenAI-compatible endpoint across 17+ LLM providers, token budgets, prompt firewall, MCP and A2A governance.
+- [Identity Manager](https://apinizer.com/products/identity-manager): OIDC, OAuth 2.0, JWT, JOSE — plus mTLS, SAML, LDAP / AD, and database-backed federation. One identity surface for every Apinizer API and AI request, with three-tier permissions an…
+- [API Portal](https://apinizer.com/products/api-portal): Open the front door for developers, partners, and AI agents. Stand up as many portals as you need — Public, Internal, Partner, Agents — each branded as your own. No own database,…
+- [Analytics Engine](https://apinizer.com/products/analytics-engine): Watch every API call. Ship the log everywhere. Answer in seconds. Async traffic capture, fan-out to nine destinations in parallel, dashboards and tracing operators actually use, a…
+- [API Designer](https://apinizer.com/products/api-designer): Design the API. Ship the proxy. One click apart. OpenAPI 3, Swagger 2, and WSDL editing — with a one-click path from spec to a live, governed API on the same gateway, and instant…
+- [API Creator](https://apinizer.com/products/api-creator): Apinizer API Creator — three ways to ship an endpoint without a microservice. DB to API turns SQL into REST. Mock API gives frontends real-shaped responses with auth. Script to AP…
+- [DB to API](https://apinizer.com/products/db-to-api): Turn SQL queries and stored procedures into REST endpoints. Apinizer DB-to-API ships drivers for 10 databases, named-parameter binding, cursor unwrapping, and the same gateway pip…
+- [Mock API](https://apinizer.com/products/mock-api): Mock APIs that look like the real ones. Apinizer Mock API ships condition-driven response routing, OpenAPI import, and the same auth + audit pipeline as live proxies — frontends n…
+- [Script to API](https://apinizer.com/products/script-to-api): Drop JavaScript or Groovy into Apinizer and ship it as an endpoint. GraalVM Polyglot for JS, pre-compiled Groovy classes for hot dispatch — both pass the full gateway pipeline wit…
+- [API Integrator](https://apinizer.com/products/api-integrator): Connect anything to anything. Without writing the integration. Eighteen task types on one drag-and-drop canvas, chained with output keys and JSON Path, fired by cron, HTTP, or ano…
+- [Cache](https://apinizer.com/products/cache): Apinizer Cache is a two-tier cache — a local in-pod tier inside every gateway, a Hazelcast cluster on Kubernetes for the distributed tier. Twelve first-party cache scopes, atomic…
+- [Monitoring](https://apinizer.com/products/monitoring): Apinizer Monitoring — uptime probes from your regions, anomaly detection with EMA and Bollinger bands, ten platform alert triggers ready on day one, and severity-aware action chai…
+
+## Solutions by industry
+
+- [Banking](https://apinizer.com/solutions/banking): Apinizer for banks — audit at the persistence layer, encrypted secrets, three-tier access, and compliance with BDDK, PSD2, and PCI-DSS. Trusted by Aktif Bank.
+- [Government](https://apinizer.com/solutions/government): Apinizer for ministries and public agencies — bilingual TR + EN, runs entirely on the customer's Kubernetes, KVKK / GDPR / eIDAS compliant. Trusted by BTK, GİB, Adalet Bakanlığı,…
+- [Defense](https://apinizer.com/solutions/defense): Apinizer for defense and aerospace — air-gapped or sovereign clusters, strict change control, zero-trust assumptions. Trusted by Havelsan.
+- [Telecom](https://apinizer.com/solutions/telecom): Apinizer for telecom and energy operators — low-latency tier in front of OSS / BSS / SCADA / billing systems. Trusted by Türksat and BOTAS.
+- [Energy](https://apinizer.com/solutions/energy): Apinizer for energy operators, utilities, and ministries — API tier in front of SCADA-adjacent systems, OT/IT bridges, and smart-grid telemetry. Trusted by BOTAS and Enerji Bakanl…
+- [Insurance](https://apinizer.com/solutions/insurance): Apinizer designed for insurance carriers — quote, bind, and claim APIs with versioning, observability, and three-tier access. Bring agent and broker integrations under one platfor…
+
+## Use cases
+
+- [API lifecycle management](https://apinizer.com/solutions/api-lifecycle-management): Design, ship, version, deprecate, and retire APIs on one timeline. Apinizer turns the lifecycle into a system platform teams prefer and auditors trust.
+- [Multi-cluster deployment](https://apinizer.com/solutions/multi-cluster-deployment): Run one control plane and many data planes — across regions, environments, and providers. Promote definitions once; clusters pick them up wherever they live.
+- [Managed + remote hybrid](https://apinizer.com/solutions/managed-remote-hybrid): Run the Manager where you trust it most and push Workers to wherever traffic lives — partner data centers, edge sites, sovereign zones, even air-gapped operators.
+- [Hot deploy & cache](https://apinizer.com/solutions/hot-deploy-cache): Push a definition. Watch the gateway pick it up — no restart, no warm-up, no traffic loss. Backed by a distributed cache that survives reschedules.
+- [Three-tier permissions](https://apinizer.com/solutions/three-tier-permissions): Platform / Project / Environment — three layers of access, one model. Engineers move fast, auditors get a clean trail, and nobody touches what they shouldn't.
+- [Observability & audit](https://apinizer.com/solutions/observability-audit): Real-time API and AI telemetry on top of Elasticsearch, audit enforced at the persistence layer, and an evidence packet the regulator actually accepts.
+- [Unified API & AI platform](https://apinizer.com/solutions/unified-api-ai-platform): One platform for every API and every AI call — same audit, same identity, same permissions, same kubernetes. The technology bet you only have to make once.
+- [Legacy modernization](https://apinizer.com/solutions/legacy-modernization): Wrap, expose, and retire 20-year-old SOAP, mainframe, and database backends through one gateway — without a rip-and-replace and without rewriting consumers.
+- [AI cost control](https://apinizer.com/solutions/ai-cost-control): Token-aware routing, semantic caching, per-team budgets, and per-call attribution. Watch AI spend turn from a quarterly surprise into a line you control.
+- [API monetization](https://apinizer.com/solutions/api-monetization): Turn APIs into a product line — plans, quotas, contracts, dashboards, and partner self-service. Apinizer ships the controls; you keep the revenue.
+- [KVKK / GDPR / BDDK compliance](https://apinizer.com/solutions/kvkk-gdpr-bddk-compliance): An API and AI platform built where audit, encryption, and access control are non-negotiable. Evidence packets for KVKK, GDPR, BDDK, PSD2, PCI-DSS, ISO 27001 — generated, not assem…
+- [AI Gateway](https://apinizer.com/solutions/ai-gateway): One gateway for every AI call — multi-LLM routing, MCP server governance, agent-to-agent registry, prompt firewalls, and AI observability. Same audit, same identity, same Kubernet…
+- [Multi-LLM routing](https://apinizer.com/solutions/multi-llm-routing): Route prompts to the right model — frontier, regional, open-weight, sovereign — by cost, latency, capability, and consent. One gateway, every provider, one audit.
+- [MCP server governance](https://apinizer.com/solutions/mcp-server-governance): Register, authenticate, scope, and audit every MCP server an agent can reach. Apinizer turns the MCP plane into a governed surface — not a wild-west extension layer.
+- [Agent-to-Agent (A2A)](https://apinizer.com/solutions/agent-to-agent): Agents that call other agents need their own identity, registry, and audit plane. Apinizer's A2A surface gives every agent a passport — and every conversation a paper trail.
+- [Prompt firewalls](https://apinizer.com/solutions/prompt-firewalls): Block jailbreaks, redact PII, detect injection, and enforce policy on every prompt and every completion — before either touches the model or the user.
+- [Token economics](https://apinizer.com/solutions/token-economics): Every token counted, tagged, and attributed. Apinizer turns LLM cost into a metric your team can actually optimize — by consumer, by intent, by model.
+- [AI observability](https://apinizer.com/solutions/ai-observability): Real-time telemetry for every prompt, completion, agent call, and tool invocation. Latency, cost, quality, drift — joined to the same audit ledger as API traffic.
+- [API Gateway](https://apinizer.com/solutions/api-gateway): Where the API Gateway sits — between your mobile, web, partner, and AI clients and your microservices, legacy SOAP, databases, and LLMs. Auth, rate limiting, routing, transformati…
+- [DB-2-API](https://apinizer.com/solutions/db-2-api): Turn SQL queries and stored procedures into governed REST endpoints — without a service layer. Auth, audit, rate limits, and OpenAPI come included.
+- [Script-2-API (Groovy / JS)](https://apinizer.com/solutions/script-2-api): Drop a Groovy or JavaScript snippet — it ships as a governed REST endpoint. Auth, audit, rate limits, and OpenAPI come included. No container builds, no service code.
+- [Mock APIs](https://apinizer.com/solutions/mock-apis): Real-shaped responses with conditional logic, dynamic data, and the same governance as production. Unblock frontend, partners, and contract testing without standing up backends.
+- [APIops (CI/CD)](https://apinizer.com/solutions/apiops): Describe APIs, policies, and topology as manifests. Apply them through your pipeline. Get the same audit and three-tier permissions you get from the UI.
+- [OpenAPI-first design](https://apinizer.com/solutions/openapi-first): Draft an OpenAPI spec; the gateway turns it into a governed proxy. One-click generation, contract-driven mocks, and partner-ready portals — without writing service code.
+- [Connector library (15+)](https://apinizer.com/solutions/connector-library): Database, Kafka, RabbitMQ, FTP, IBM MQ, file systems, and more — drag-and-drop task flows over the connectors that hold your enterprise together.
+
+## Developers
+
+- [Quickstart](https://apinizer.com/developers/quickstart): Stand up the platform on Kubernetes and ship your first proxy.
+- [Documentation](https://apinizer.com/developers/docs): Full product documentation at docs.apinizer.com.
+- [API Reference](https://apinizer.com/developers/api-reference): Management and runtime API reference.
+- [APIops](https://apinizer.com/developers/apiops): GitOps and CI/CD workflows for API lifecycle management.
+
+## Company
+
+- [About Apinizer](https://apinizer.com/company/about): Who builds the platform — 20+ years of SOA, ESB, and API DNA.
+- [Customers](https://apinizer.com/company/customers): Real teams running Apinizer across banking, government, defense, and telecom.
+- [Why Apinizer](https://apinizer.com/why-apinizer): Architecture choices, runtime ownership, and the operating story.
+- [Pricing](https://apinizer.com/pricing): Community (free) and Enterprise editions, support tiers, and enterprise licensing.
+- [Free download](https://apinizer.com/get-started): Get the free Community edition — license emailed, install on Kubernetes, a VM, or Docker.
+- [Partners](https://apinizer.com/partners): Implementation, OEM, and reseller partnership tracks.
+- [Contact](https://apinizer.com/company/contact): Reach sales, partnerships, and the platform team.
+
+## Blog
+
+- [Introducing Apinizer 2026.04 — AI Gateway is here](https://apinizer.com/blog/2026-04-introducing-ai-gateway) — 2026-04-22: The same gateway that runs your REST APIs now governs every LLM, MCP server, and agent-to-agent message — under the same audit and permission model.
+- [Multi-LLM routing on your own Kubernetes](https://apinizer.com/blog/2026-03-multi-llm-routing) — 2026-03-18: What it actually means to give your applications one OpenAI-compatible endpoint and route across 17 providers behind it — without writing a microservice.
+- [How banks govern API surfaces with Apinizer](https://apinizer.com/blog/2026-02-banking-api-governance) — 2026-02-04: The audit, encryption, and three-tier permission model that the regulators actually want — built into the platform, not bolted on as middleware.
+- [APIops in CI/CD — when your API platform behaves like a codebase](https://apinizer.com/blog/2025-12-apiops-in-cicd) — 2025-12-02: Manifests, idempotent applies, environment promotion, and the audit trail that makes the regulator's questions easy. The shape of platform-as-code for API gateways.
+- [Prompt firewalls — runtime safety for LLM traffic](https://apinizer.com/blog/2025-11-prompt-firewalls) — 2025-11-04: Jailbreak detection, PII redaction, injection scoring, outbound content filtering. What it takes to make LLM safety a runtime property instead of a model property.
+- [Multi-protocol gateway — what changes when SOAP, REST, gRPC, and GraphQL share a pipeline](https://apinizer.com/blog/2025-10-multi-protocol-gateway) — 2025-10-14: Banks running WSDL alongside gRPC, ministries running GraphQL alongside SOAP. What it actually means to put every protocol on one policy pipeline — and what it doesn't.
+- [Local-vendor prejudice — how we broke it, and how you can too](https://apinizer.com/blog/2025-09-domestic-product-prejudice) — 2025-09-12: Five years of conversations with enterprise buyers about why "local vendor" sounds like a downside. The 14 prejudices we kept hearing, and what answers actually moved them.
+- [API management — build or buy?](https://apinizer.com/blog/2025-09-build-vs-buy) — 2025-09-08: Three ways to handle API management as your API count grows. The honest math on each, and why most teams end up with the same answer.
+- [The future where APIs talk to AI — API Portal × MCP](https://apinizer.com/blog/2025-08-mcp-integration) — 2025-08-06: Eighteen MCP tools, four categories, three phases of enterprise rollout — and a fintech onboarding story that went from two weeks to one day.
+- [The gateway zoo — API, Event, Kafka, AI gateways through Conway's law](https://apinizer.com/blog/2025-08-gateway-zoo) — 2025-08-06: Why every new gateway category — Event, Kafka, AI, Agent — keeps trying to fold itself into the API gateway. And when to let it, and when not to.
+- [Hot deployment without dropping a request](https://apinizer.com/blog/2025-07-hot-deployment) — 2025-07-09: What it takes for a gateway to accept a new proxy, a new policy, or a new route — while traffic is in flight. The runtime contract, not the marketing line.
+- [The future where APIs talk to AI: Apinizer API Portal × MCP](https://apinizer.com/blog/apinizer-api-portal-mcp-integration) — 2025-07-01: Eighteen MCP tools, four categories, three phases of enterprise rollout — and a fintech onboarding story that went from two weeks to one day.
+
+## Optional
+
+- [RSS feed](https://apinizer.com/feed.xml): Subscribe to the Apinizer engineering blog.
+- [Sitemap](https://apinizer.com/sitemap.xml): Full URL inventory.
+- [Privacy](https://apinizer.com/legal/privacy)
+- [Terms](https://apinizer.com/legal/terms)
+- [Security](https://apinizer.com/legal/security)
