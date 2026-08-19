@@ -1,0 +1,226 @@
+{
+  "item": [
+    {
+      "id": "500db138-0672-4344-aa2b-c0f49922b96d",
+      "name": "Gateways",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "fd4330ee-6bd9-4472-93b8-90de95811555",
+          "name": "List Gateways",
+          "request": {
+            "name": "List Gateways",
+            "description": {
+              "content": "List all API gateways managed in the Apinizer platform.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "76a33f48-4a40-449d-afa2-c25cefd108b6",
+              "name": "List of API gateways",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"gw_abc123\",\n    \"name\": \"Payment API Gateway\",\n    \"description\": \"Gateway for payment processing microservices\",\n    \"baseUrl\": \"https://payments.internal.example.com\",\n    \"status\": \"active\",\n    \"createdAt\": \"2026-01-10T09:00:00Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f790546-3dbc-4a4e-b325-12eb24ea306e",
+          "name": "Create Gateway",
+          "request": {
+            "name": "Create Gateway",
+            "description": {
+              "content": "Create a new API gateway in the Apinizer platform.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gateways"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"baseUrl\": \"<uri>\",\n  \"description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7a6cbdca-3d0f-43b5-82c1-8f3284ab63a4",
+              "name": "Gateway created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"Payment API Gateway\",\n  \"description\": \"Gateway for payment processing microservices\",\n  \"baseUrl\": \"https://payments.internal.example.com\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"gw_abc123\",\n  \"name\": \"Payment API Gateway\",\n  \"description\": \"Gateway for payment processing microservices\",\n  \"baseUrl\": \"https://payments.internal.example.com\",\n  \"status\": \"active\",\n  \"createdAt\": \"2026-01-10T09:00:00Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.apinizer.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "08271f2f-2f13-47e2-868f-12d085304f48",
+    "name": "Apinizer Endpoints Gateways API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Apinizer API provides programmatic access to manage API gateways, policies, endpoints, and monitoring configurations within the Apinizer API management platform.",
+      "type": "text/plain"
+    }
+  }
+}

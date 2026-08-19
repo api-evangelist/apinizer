@@ -1,0 +1,45 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apinizer Endpoints Policies API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Policies",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Policies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.apinizer.com/v1/gateways/:gatewayId/policies",
+            "params": [
+              {
+                "name": "gatewayId",
+                "value": "",
+                "type": "path",
+                "description": "Unique identifier of the gateway"
+              }
+            ]
+          },
+          "docs": "List all security and governance policies applied to a gateway."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

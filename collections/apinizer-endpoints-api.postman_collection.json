@@ -1,0 +1,147 @@
+{
+  "item": [
+    {
+      "id": "f3dfd830-3ed8-4627-a434-8112d8a06726",
+      "name": "Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "73c3f00e-245e-4848-b086-3b1470fd966c",
+          "name": "List Endpoints",
+          "request": {
+            "name": "List Endpoints",
+            "description": {
+              "content": "List all API endpoints registered on a gateway.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "gateways",
+                ":gatewayId",
+                "endpoints"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "gatewayId",
+                  "description": "(Required) Unique identifier of the gateway"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "78a9d9c5-9651-4685-810f-643e183bc727",
+              "name": "List of endpoints",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "gateways",
+                    ":gatewayId",
+                    "endpoints"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "gatewayId",
+                      "description": "(Required) Unique identifier of the gateway"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"ep_xyz789\",\n    \"path\": \"/payments/{id}\",\n    \"method\": \"GET\",\n    \"backendPath\": \"/v1/payments/{id}\",\n    \"policies\": [\n      \"rate-limit-100rpm\",\n      \"jwt-auth\"\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.apinizer.com/v1",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9a5d2525-e751-49aa-a366-0474d2901083",
+    "name": "Apinizer Endpoints API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Apinizer API provides programmatic access to manage API gateways, policies, endpoints, and monitoring configurations within the Apinizer API management platform.",
+      "type": "text/plain"
+    }
+  }
+}
