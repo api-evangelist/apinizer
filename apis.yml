@@ -46,7 +46,8 @@ apis:
   description: The Endpoints API from Apinizer — 1 operation(s) for endpoints.
   humanURL: https://apinizer.com/
   baseURL: https://api.apinizer.com/v1
-  tags:
+  tags: []
+  tags_raw:
   - Endpoints
   properties:
   - type: OpenAPI
