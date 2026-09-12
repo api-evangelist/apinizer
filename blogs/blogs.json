@@ -2,20 +2,18 @@
   "repo": "apinizer",
   "feeds": [
     {
+      "source": "https://apinizer.com/documentation/",
+      "error": "HTTPError"
+    },
+    {
       "source": "https://apinizer.com/feed.xml",
       "feed_url": "https://apinizer.com/feed.xml",
       "title": "",
       "saved": 0,
-      "method": "feed",
-      "nature": "vendor-blog",
-      "nature_basis": "path_blog"
-    },
-    {
-      "source": "https://apinizer.com/documentation/",
-      "error": "HTTPError"
+      "method": "feed"
     }
   ],
-  "fetched": "2026-08-30T22:33:40Z",
+  "fetched": "2026-09-06T19:17:18Z",
   "post_count": 27,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "path_blog",
