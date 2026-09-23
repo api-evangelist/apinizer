@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Apinizer Endpoints Monitoring API
+  title: Apinizer Monitoring API
   description: The Apinizer API provides programmatic access to manage API gateways, policies, endpoints, and monitoring configurations within the Apinizer API management platform.
   version: 1.0.0
   contact:
@@ -47,6 +47,14 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  examples:
+    MetricsExample:
+      value:
+        totalRequests: 150000
+        successfulRequests: 148500
+        errorRequests: 1500
+        averageLatency: 45.2
+        requestsPerSecond: 1.74
   schemas:
     Metrics:
       type: object
@@ -66,14 +74,6 @@ components:
         requestsPerSecond:
           type: number
           description: Average requests per second
-  examples:
-    MetricsExample:
-      value:
-        totalRequests: 150000
-        successfulRequests: 148500
-        errorRequests: 1500
-        averageLatency: 45.2
-        requestsPerSecond: 1.74
   securitySchemes:
     apiKey:
       type: apiKey

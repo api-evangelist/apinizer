@@ -1,10 +1,7 @@
 {
   "provider": "apinizer",
   "sources": [
-    "apinizer-endpoints-api-openapi.yml",
-    "apinizer-gateways-api-openapi.yml",
-    "apinizer-monitoring-api-openapi.yml",
-    "apinizer-policies-api-openapi.yml"
+    "_original/apinizer-api.yaml"
   ],
   "outputs": [
     "apinizer-endpoints-api-openapi.yml",
@@ -15,6 +12,19 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "apinizer-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apinizer-api.yaml: declared missing tag: Endpoints",
+    "apinizer-api.yaml: declared missing tag: Gateways",
+    "apinizer-api.yaml: declared missing tag: Monitoring",
+    "apinizer-api.yaml: declared missing tag: Policies",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "apinizer-endpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apinizer-gateways-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apinizer-monitoring-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "apinizer-policies-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
