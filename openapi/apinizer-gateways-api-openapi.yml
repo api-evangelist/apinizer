@@ -64,7 +64,45 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  examples:
+    GatewayListExample:
+      value:
+      - id: gw_abc123
+        name: Payment API Gateway
+        description: Gateway for payment processing microservices
+        baseUrl: https://payments.internal.example.com
+        status: active
+        createdAt: '2026-01-10T09:00:00Z'
+    GatewayExample:
+      value:
+        id: gw_abc123
+        name: Payment API Gateway
+        description: Gateway for payment processing microservices
+        baseUrl: https://payments.internal.example.com
+        status: active
+        createdAt: '2026-01-10T09:00:00Z'
+    GatewayRequestExample:
+      value:
+        name: Payment API Gateway
+        description: Gateway for payment processing microservices
+        baseUrl: https://payments.internal.example.com
   schemas:
+    GatewayRequest:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the gateway
+        description:
+          type: string
+          description: Description of the gateway
+        baseUrl:
+          type: string
+          format: uri
+          description: Base URL of the backend service
+      required:
+      - name
+      - baseUrl
     Gateway:
       type: object
       properties:
@@ -95,44 +133,6 @@ components:
       - id
       - name
       - baseUrl
-    GatewayRequest:
-      type: object
-      properties:
-        name:
-          type: string
-          description: Name of the gateway
-        description:
-          type: string
-          description: Description of the gateway
-        baseUrl:
-          type: string
-          format: uri
-          description: Base URL of the backend service
-      required:
-      - name
-      - baseUrl
-  examples:
-    GatewayRequestExample:
-      value:
-        name: Payment API Gateway
-        description: Gateway for payment processing microservices
-        baseUrl: https://payments.internal.example.com
-    GatewayListExample:
-      value:
-      - id: gw_abc123
-        name: Payment API Gateway
-        description: Gateway for payment processing microservices
-        baseUrl: https://payments.internal.example.com
-        status: active
-        createdAt: '2026-01-10T09:00:00Z'
-    GatewayExample:
-      value:
-        id: gw_abc123
-        name: Payment API Gateway
-        description: Gateway for payment processing microservices
-        baseUrl: https://payments.internal.example.com
-        status: active
-        createdAt: '2026-01-10T09:00:00Z'
   securitySchemes:
     apiKey:
       type: apiKey
