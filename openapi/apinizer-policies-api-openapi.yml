@@ -43,6 +43,15 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  examples:
+    PolicyListExample:
+      value:
+      - id: rate-limit-100rpm
+        name: Rate Limit 100 RPM
+        type: rate-limit
+        configuration:
+          limit: 100
+          window: minute
   schemas:
     Policy:
       type: object
@@ -70,15 +79,6 @@ components:
       - id
       - name
       - type
-  examples:
-    PolicyListExample:
-      value:
-      - id: rate-limit-100rpm
-        name: Rate Limit 100 RPM
-        type: rate-limit
-        configuration:
-          limit: 100
-          window: minute
   securitySchemes:
     apiKey:
       type: apiKey
