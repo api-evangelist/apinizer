@@ -124,6 +124,9 @@ apis:
   - type: JSONLD
     url: json-ld/apinizer-context.jsonld
 common:
+- type: CapabilityMap
+  url: capabilities/apinizer-capability-edges.yml
+  name: Apinizer Business Capability Map
 - type: APIReference
   url: https://apinizer.com/developers/api-reference
 - type: Security
