@@ -1,4 +1,4 @@
-# Apinizer (apinizer)
+# Apinizer
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,99 +66,169 @@
 
 Apinizer is an API management platform that provides API gateway, API portal, API testing, monitoring, and security capabilities. It enables organizations to manage, secure, and monitor their APIs through a comprehensive API lifecycle management solution with policy enforcement, endpoint routing, and real-time metrics collection.
 
-**URL:** [https://apinizer.com/](https://apinizer.com/)
+**Areas:** API Gateway · API Management · API Monitoring · API Security · Policies
 
-## Tags:
+## Apinizer on APIs.io
 
- - API Gateway, API Management, API Monitoring, API Security, Policies
+Everything profiled for Apinizer is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/apinizer/](https://apis.io/providers/apinizer/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (4)
 
-- **Created:** 2026-03-16
-- **Modified:** 2026-04-19
+- [Apinizer Endpoints API](https://apis.io/apis/apinizer/apinizer-endpoints-api/) — The Endpoints API from Apinizer — 1 operation(s) for endpoints.
+- [Apinizer Gateways API](https://apis.io/apis/apinizer/apinizer-gateways-api/) — The Gateways API from Apinizer — 1 operation(s) for gateways.
+- [Apinizer Monitoring API](https://apis.io/apis/apinizer/apinizer-monitoring-api/) — The Monitoring API from Apinizer — 1 operation(s) for monitoring.
+- [Apinizer Policies API](https://apis.io/apis/apinizer/apinizer-policies-api/) — The Policies API from Apinizer — 1 operation(s) for policies.
 
-## APIs
+### Published properties
 
-### Apinizer API
-The Apinizer API provides programmatic access to manage API gateways, policies, endpoints, and monitoring configurations within the Apinizer platform.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-**Human URL:** [https://apinizer.com/](https://apinizer.com/)
+#### Agentic access (1)
 
-#### Tags:
+Which operations an agent can call, which act, and which need a human in the loop.
 
- - API Gateway, API Management, API Security, Monitoring
+- [Apinizer Agentic Access](https://apis.io/agentic-access/apinizer/apinizer-agentic-access/)
 
-#### Properties
+#### JSON Schema (2)
 
-- [Documentation](https://apinizer.com/documentation/)
-- [GettingStarted](https://apinizer.com/getting-started/)
-- [OpenAPI](openapi/apinizer-api.yaml)
-- [JSONSchema](json-schema/apinizer-gateway-schema.json)
-- [JSONSchema](json-schema/apinizer-policy-schema.json)
-- [JSON-LD](json-ld/apinizer-context.jsonld)
+The data models the API reads and writes.
 
-## Common Properties
+- [Apinizer Gateway](https://apis.io/schemas/apinizer/apinizer-gateway/)
+- [Apinizer Policy](https://apis.io/schemas/apinizer/apinizer-policy/)
+
+#### JSON Structure (2)
+
+Data models expressed in JSON Structure.
+
+- [Apinizer Gateway Structure](https://apis.io/json-structure/apinizer/apinizer-gateway-structure/)
+- [Apinizer Policy Structure](https://apis.io/json-structure/apinizer/apinizer-policy-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Apinizer Context](https://apis.io/jsonld/apinizer/apinizer-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Apinizer Vocabulary](https://apis.io/vocabularies/apinizer/apinizer-vocabulary/)
+
+#### Examples (2)
+
+Example requests and responses.
+
+- [Apinizer Gateway Example](https://apis.io/examples/apinizer/apinizer-gateway-example/)
+- [Apinizer Policy Example](https://apis.io/examples/apinizer/apinizer-policy-example/)
+
+#### Collections (4)
+
+Postman and Open Collection request collections.
+
+- [Apinizer Endpoints API](https://apis.io/collections/apinizer/open-apinizer-endpoints-api/)
+- [Apinizer Endpoints Gateways API](https://apis.io/collections/apinizer/open-apinizer-gateways-api/)
+- [Apinizer Endpoints Monitoring API](https://apis.io/collections/apinizer/open-apinizer-monitoring-api/)
+- [Apinizer Endpoints Policies API](https://apis.io/collections/apinizer/open-apinizer-policies-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [Apinizer — jsonschema rules](https://apis.io/rules/apinizer/apinizer-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Apinizer Authentication](https://apis.io/security/apinizer/apinizer-authentication/)
+- [Apinizer Domain Security](https://apis.io/security/apinizer/apinizer-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Apinizer Plans Pricing](https://apis.io/plans/apinizer/apinizer-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Apinizer Rate Limits](https://apis.io/rate-limits/apinizer/apinizer-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Apinizer Finops](https://apis.io/finops/apinizer/apinizer-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://apinizer.com/)
 - [Documentation](https://apinizer.com/documentation/)
+- [Getting started](https://apinizer.com/developers/quickstart)
+- [API reference](https://apinizer.com/developers/api-reference)
+- [Pricing](https://apinizer.com/pricing)
+- [Changelog](https://docs.apinizer.com/en/release-notes/change-log)
 - [Blog](https://apinizer.com/blog/)
-- [GitHubOrganization](https://github.com/apinizer)
+- [Security](https://apinizer.com/legal/security)
+- [Terms of service](https://apinizer.com/legal/terms)
+- [Privacy policy](https://apinizer.com/legal/privacy)
+- [GitHub](https://github.com/apinizer)
 
-## Features
+## API Evangelist rating
 
-| Name | Description |
-|------|-------------|
-| API Gateway | Enterprise API gateway for routing, load balancing, and traffic management across backend services. |
-| Security Policies | Apply authentication, rate limiting, IP filtering, CORS, and custom security policies to APIs. |
-| API Monitoring | Real-time monitoring dashboards with request metrics, latency tracking, and error rate analysis. |
-| API Portal | Developer portal for API discovery, documentation, and self-service API key management. |
-| API Testing | Built-in API testing capabilities for validating endpoint behavior and performance. |
-| Policy Management | Centralized policy management for consistent security and governance enforcement across all APIs. |
+**Kin Score 45.9** — developing · rubric 0.25.0 · scored 2026-10-23
 
-## Use Cases
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 61.8 |
+| Contract governance | 9.8 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 42.9 |
+| Access clarity | 39.5 |
 
-| Name | Description |
-|------|-------------|
-| Microservices Gateway | Route and manage traffic to microservices through a centralized API gateway with policy enforcement. |
-| API Security Enforcement | Apply consistent authentication, rate limiting, and IP filtering across all organizational APIs. |
-| API Operations Monitoring | Monitor API health, track performance metrics, and receive alerts for anomalous behavior. |
-| Developer Self-Service | Provide developers with a portal for discovering APIs, reading documentation, and obtaining API keys. |
+**Agent readiness 23.7** — agent-aware
 
-## Solutions
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | distinct |
 
-| Name | Description |
-|------|-------------|
-| Community Edition | Free open-source API management for small teams and development environments. |
-| Enterprise Edition | Full-featured enterprise API management with support, clustering, and advanced security features. |
+**Regulatory alignment 24.5** — Horizontal (data, software, accessibility, platform)
 
-## Artifacts
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/apinizer/](https://apis.io/providers/apinizer/).
 
-Machine-readable API specifications organized by format.
+## How this profile is made
 
-### OpenAPI
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
 
-- [Apinizer API](openapi/apinizer-api.yaml)
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Apinizer: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
 
-### JSON Schema
+## Open an issue
 
-- [apinizer-gateway-schema.json](json-schema/apinizer-gateway-schema.json)
-- [apinizer-policy-schema.json](json-schema/apinizer-policy-schema.json)
-
-### JSON Structure
-
-- [apinizer-gateway-structure.json](json-structure/apinizer-gateway-structure.json)
-- [apinizer-policy-structure.json](json-structure/apinizer-policy-structure.json)
-
-### JSON-LD
-
-- [apinizer-context.jsonld](json-ld/apinizer-context.jsonld)
-
-## Vocabulary
-
-- [Apinizer Vocabulary](vocabulary/apinizer-vocabulary.yaml) — Unified taxonomy mapping API gateway resources, policies, monitoring, and personas for the Apinizer API management platform
-
-## Maintainers
-
-**FN:** Kin Lane
-
-**Email:** kin@apievangelist.com
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/apinizer/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
